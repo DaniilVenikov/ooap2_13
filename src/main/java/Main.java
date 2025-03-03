@@ -21,8 +21,7 @@ class Animal {
 
 
     // пример пункта 4. метод скрыт в родительском классе А и скрыт в его потомке B.
-    // Если метод скрыт в родительском классе, он будет даже от наследника
-    private void eat() {
+    protected void eat() {
         System.out.println("Eating");
     }
 }
@@ -31,13 +30,21 @@ class Animal {
 class Bird extends Animal {
 
     // пример  пункта 1. метод публичен в родительском классе А и публичен в его потомке B;
+    @Override
     public int getCountLeg() {
         return 2;
     }
 
     // пример пункта 3. метод скрыт в родительском классе А и публичен в его потомке B;
     // Расширяем область видимости метода
+    @Override
     public void go() {
         System.out.println("Go bird");
+    }
+
+    @Override
+    // пример пункта 4. метод скрыт в родительском классе А и скрыт в его потомке B.
+    protected void eat() {
+        System.out.println("Bird eating");
     }
 }
